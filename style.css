@@ -1,0 +1,162 @@
+@import url("https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap");
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: "Syne Mono", monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin: 80px 10px;
+}
+
+video {
+  width: 40vw;
+  height: 30vw;
+  margin: 2rem;
+  background: #2c3e50;
+}
+/* .menu {
+  visibility: visible;
+  color: #2c3e50;
+} */
+.videos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+button {
+  padding: 0.5rem 1rem;
+}
+input {
+  display: inline-block;
+  height: 2rem;
+}
+header {
+  display: none;
+}
+header .burger {
+  cursor: pointer;
+}
+header .burger span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #ffffff;
+}
+header .burger span:not(:last-child) {
+  margin-bottom: 3px;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 140px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -75px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+@media screen and (max-width: 567px) {
+  .videos {
+    flex-direction: column;
+  }
+  .noscroll {
+    overflow-y: hidden;
+  }
+  .tooltip .tooltiptext {
+    color: #555;
+    background-color: #fff;
+  }
+  video {
+    width: 80vw;
+    height: 40vh;
+    margin: 1rem;
+  }
+  .menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #0d0e0f;
+    padding: 1rem 1rem 1rem 2rem;
+    text-align: left;
+    color: #fff;
+    overflow: hidden;
+    visibility: hidden;
+  }
+  .menu.open {
+    visibility: visible;
+  }
+  header {
+    display: block;
+    position: fixed;
+    top: 1rem;
+    right: 2px;
+    z-index: 5;
+    background-color: rgb(78, 78, 78);
+    padding: 6px;
+    overflow: hidden;
+  }
+  .menu input {
+    margin-bottom: 1rem;
+  }
+}
+.slide-in {
+  animation: slide-in 300ms ease-in-out forwards;
+}
+.slide-out {
+  animation: slide-out 300ms ease-in-out forwards;
+}
+@keyframes slide-in {
+  from {
+    left: -250px;
+  }
+  to {
+    left: 0;
+  }
+}
+@keyframes slide-out {
+  from {
+    left: 0;
+    visibility: visible;
+  }
+  99% {
+    visibility: visible;
+  }
+  to {
+    left: -250px;
+    visibility: hidden;
+  }
+}
