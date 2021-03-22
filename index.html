@@ -32,8 +32,8 @@
 
       <h2>3. Join a Call</h2>
       <p>Answer the call from a different browser window or device</p>
+      <input type="text" id="callInput" />
       <div class="tooltip">
-        <input type="text" id="callInput" />
         <button id="copy-btn" onclick="copy()">
           <span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
           copy id
@@ -47,5 +47,14 @@
     </div>
 
     <script type="module" src="/main.js"></script>
+    <script>
+      const copy = () => {
+        const textToCopy = document.getElementById("callInput");
+        textToCopy.select();
+        textToCopy.setSelectionRange(0, 99999); /* For mobile devices */
+        /* Copy the text inside the text field */
+        document.execCommand("copy");
+      };
+    </script>
   </body>
 </html>

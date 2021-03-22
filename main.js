@@ -58,14 +58,6 @@ menu.addEventListener("click", () => {
   }
 });
 
-const copy = () => {
-  const textToCopy = document.getElementById("callInput");
-  textToCopy.select();
-  textToCopy.setSelectionRange(0, 99999); /* For mobile devices */
-  /* Copy the text inside the text field */
-  document.execCommand("copy");
-};
-
 // 1. Setup media sources
 
 webcamButton.onclick = async () => {
@@ -170,7 +162,6 @@ answerButton.onclick = async () => {
 
   offerCandidates.onSnapshot((snapshot) => {
     snapshot.docChanges().forEach((change) => {
-      console.log(change);
       if (change.type === "added") {
         let data = change.doc.data();
         pc.addIceCandidate(new RTCIceCandidate(data));
