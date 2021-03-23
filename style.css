@@ -87,7 +87,7 @@ header .burger span:not(:last-child) {
   opacity: 1;
 }
 
-@media screen and (max-width: 567px) {
+@media screen and (max-width: 566px) {
   .videos {
     flex-direction: column;
   }
@@ -158,5 +158,10 @@ header .burger span:not(:last-child) {
   to {
     left: -250px;
     visibility: hidden;
+  }
+}
+@media screen and (min-width: 567px) {
+  .hide-for-desktop {
+    display: none;
   }
 }
