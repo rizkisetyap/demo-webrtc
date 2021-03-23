@@ -34,7 +34,7 @@
       <p>Answer the call from a different browser window or device</p>
       <input type="text" id="callInput" />
       <div class="tooltip">
-        <button id="copy-btn" onclick="copy()">
+        <button id="copy-btn" onclick="newCopy()">
           <span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
           copy id
         </button>
@@ -54,6 +54,12 @@
         textToCopy.setSelectionRange(0, 99999); /* For mobile devices */
         /* Copy the text inside the text field */
         document.execCommand("copy");
+      };
+
+      const newCopy = async () => {
+        const textToCopy = document.getElementById("callInput");
+        textToCopy.select();
+        await navigator.clipboard.writeText(textToCopy.value);
       };
     </script>
   </body>

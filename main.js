@@ -63,7 +63,7 @@ menu.addEventListener("click", () => {
 webcamButton.onclick = async () => {
   localStream = await navigator.mediaDevices.getUserMedia({
     video: true,
-    audio: true,
+    audio: false,
   });
   remoteStream = new MediaStream();
 
@@ -85,6 +85,11 @@ webcamButton.onclick = async () => {
   callButton.disabled = false;
   answerButton.disabled = false;
   webcamButton.disabled = true;
+  // auto close menu
+  sidebar.classList.remove("open");
+  document.body.classList.remove("noscroll");
+  sidebar.classList.remove("slide-in");
+  sidebar.classList.add("slide-out");
 };
 
 // 2. Create an offer
@@ -168,4 +173,8 @@ answerButton.onclick = async () => {
       }
     });
   });
+  sidebar.classList.remove("open");
+  document.body.classList.remove("noscroll");
+  sidebar.classList.remove("slide-in");
+  sidebar.classList.add("slide-out");
 };
